@@ -1,4 +1,4 @@
-# PSL-Recommender -- a protein subcellular location predictor based on logistic matrix factorization
+# PSL-Recommender - Protein Subcellular Localization Prediction using Recommender System
 
 PSL-Recommender is a python package for prediction of proteins subcellular locations 
 
