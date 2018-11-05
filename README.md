@@ -38,7 +38,10 @@ For running Results.py [scikit-learn](http://scikit-learn.org/stable/) package i
 
 ## Authors
 **Ruhollah Jamali**
+
 Email: ruhi.jamali@gmail.com
+
 School of Biological Sciences, Institute for Research in Fundamental Sciences(IPM), Tehran, Iran
+
 Do not hesitate to ask any question about the repository.
 
