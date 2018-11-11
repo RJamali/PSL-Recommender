@@ -2,7 +2,7 @@
 
 PSL-Recommender is a python package for prediction of proteins subcellular locations.
 PSL-Recommender uses logistic matrix factorization to build a recommender system for protein subcellular localization problem.
-This package is based on previous implementation of logistic matrix factorization [Logistic matrix factorization for implicit feedback data](https://github.com/MrChrisJohnson/logistic-mf) and [Neighborhood regularized logistic matrix factorization for drug-target interaction prediction](https://github.com/stephenliu0423/PyDTI).
+This package is based on previous implementation of logistic matrix factorization by [Logistic matrix factorization for implicit feedback data](https://github.com/MrChrisJohnson/logistic-mf) and [Neighborhood regularized logistic matrix factorization for drug-target interaction prediction](https://github.com/stephenliu0423/PyDTI).
 
 ### Prerequisites
 
