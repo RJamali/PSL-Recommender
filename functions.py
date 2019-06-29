@@ -1,4 +1,3 @@
-from __future__ import division
 import os
 import numpy as np
 from sklearn.metrics import confusion_matrix, precision_score, recall_score
@@ -6,23 +5,23 @@ from sklearn.metrics import confusion_matrix, precision_score, recall_score
 
 def load_matrices(dataset, folder):
     with open(os.path.join(folder, dataset+"_protein_locals.tab"), "r") as raw:
-        raw.next()
+        next(raw)
         observation_mat = [line.strip("\n").split()[1:] for line in raw]
 
     with open(os.path.join(folder, dataset+"_pssm_sim.tab"), "r") as raw:
-        raw.next()
+        next(raw)
         proteins_pssm_sim = [line.strip("\n").split()[1:] for line in raw]
 
     with open(os.path.join(folder, dataset+"_bp_sim.tab"), "r") as raw:
-        raw.next()
+        next(raw)
         proteins_bp_sim = [line.strip("\n").split()[1:] for line in raw]
 
     with open(os.path.join(folder, dataset+"_cc_sim.tab"), "r") as raw:
-        raw.next()
+        next(raw)
         proteins_cc_sim = [line.strip("\n").split()[1:] for line in raw]
 
     with open(os.path.join(folder, dataset+"_mf_sim.tab"), "r") as raw:
-        raw.next()
+        next(raw)
         proteins_mf_sim = [line.strip("\n").split()[1:] for line in raw]
 
 
@@ -34,7 +33,7 @@ def load_matrices(dataset, folder):
 
     if dataset=="HumT":
         with open(os.path.join(folder, dataset+"_string_sim.tab"), "r") as raw:
-            raw.next()
+            next(raw)
             proteins_string_sim = [line.strip("\n").split()[1:] for line in raw]
         proteins_string_sim = np.array(proteins_string_sim, dtype=np.float64)  # proteins string similarity matrix
         proteins_sim=  ((1 * proteins_pssm_sim) + (1 * proteins_string_sim) + (3 * proteins_bp_sim) + (4 * proteins_cc_sim) + (1 * proteins_mf_sim)) / (10) #compute weighted average of similarities

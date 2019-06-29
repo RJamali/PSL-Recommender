@@ -111,7 +111,7 @@ class PSLR:
     def get_nearest_neighbors(self, S, size):
         m, n = S.shape
         X = np.zeros((m, n))
-        for i in xrange(m):
+        for i in range(m):
             ii = np.argsort(S[i, :])[::-1][:min(size, n)]
             X[i, ii] = S[i, ii]
         return X

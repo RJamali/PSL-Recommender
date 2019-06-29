@@ -1,4 +1,3 @@
-from __future__ import division
 import os
 import sys
 from sklearn.model_selection import  RepeatedKFold
@@ -6,22 +5,22 @@ from functions import load_matrices, apply_threshold, compute_evaluation_criteri
 from PSLRecommender import PSLR
 import numpy as np
 
-
-dataset= raw_input("Please enter Dataset's name (HumT, Bacello, Hoglund, DBMloc): ") #Datasets: "HumT", "Bacello", "Hoglund", "DBMloc"
+print(os.path.dirname(os.path.realpath('__file__')))
+dataset= input("Please enter Dataset's name (HumT, Bacello, Hoglund, DBMloc): ") #Datasets: "HumT", "Bacello", "Hoglund", "DBMloc"
 if dataset not in {"HumT", "Bacello", "Hoglund", "DBMloc"}:
-    print "Wrong dataset name!!"
+    print ("Wrong dataset name!!")
     sys.exit()
 elif dataset=="DBMloc":
-    num_repeats =int(raw_input("Please enter number of 5-fold cross validation repeats: "))
+    num_repeats =int(input("Please enter number of 5-fold cross validation repeats: "))
 
 
-data_folder = os.path.join(os.path.pardir, 'Datasets') # All dataset's matrices folder
+data_folder = os.path.join(os.path.dirname(os.path.realpath('__file__')), 'Datasets') # All dataset's matrices folder
 
 observation_mat, proteins_sim =load_matrices(dataset,data_folder) # load protein localization matrix, proteins similarity matrix and locations similarity matrix
 F1, ACC, AVG, ACC2 = 0.0, 0.0, 0.0, 0.0
 seed = [80162,45929]
+model = PSLR(c=11, K1=4, K2=10, r=10, lambda_p=0.25, lambda_l=0.5, alpha=2.0, theta=1.0, max_iter=50)  # setting model parameters
 if dataset!="DBMloc":
-    model = PSLR(c=11, K1=4, K2=10, r=10, lambda_p=0.25, lambda_l=0.5, alpha=2.0, theta=1.0, max_iter=50)  # setting model parameters
     if dataset=="HumT":
         train_index = np.arange(0, 3122)
         test_index = np.arange(3122, 3501)
@@ -45,7 +44,6 @@ if dataset!="DBMloc":
     F1, ACC, AVG, ACC2 = compute_evaluation_criteria(true_result, prediction)
 
 else:
-    model = PSLR(c=11, K1=4, K2=10, r=10, lambda_p=0.25, lambda_l=0.5, alpha=2.0, theta=1.0, max_iter=50)  # setting model parameters
     kf = RepeatedKFold(n_splits=5, n_repeats=num_repeats)
     for train_index, test_index, in kf.split(proteins_sim, observation_mat):
         test_location_mat = np.array(observation_mat)
@@ -69,5 +67,4 @@ else:
     ACC2 = round(ACC2 / (5 * num_repeats), 2)
 
 
-print ("F1-mean for this dataset:",F1,"  ACC for this dataset:" , ACC, "  AVG for this dataset:" , AVG, "  ACC2 for this dataset:" ,ACC2)
-
+print ("F1-mean for this dataset:",F1," \nACC for this dataset:" , ACC, "\nAVG for this dataset:" , AVG, "\nACC2 for this dataset:" ,ACC2)
