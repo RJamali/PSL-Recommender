@@ -6,7 +6,7 @@ This package is based on previous implementation of logistic matrix factorizatio
 
 ### Prerequisites
 
-PSL-Recommender is implemented in python 2.7.12 and requiers [Numpy](http://www.numpy.org/) package.
+PSL-Recommender is implemented in python 3.6.8 and requiers [Numpy](http://www.numpy.org/) package.
 
 ### Using PSL-Recommender
 First step is to define a model (PSLR predictor) with parameters like the following example:
