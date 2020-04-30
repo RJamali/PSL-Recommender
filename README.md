@@ -24,7 +24,7 @@ All model parameters are explained in the paper but here is a breif description 
  * lambda_l: : variance controlling parameter for subcellular locations
  * alpha: impact factor of nearest neighbors used for neighborhood regularization
  * max_iter: maximum number of iteration for gradient descent
-        
+
 The model must be trained on the training dataset like the following example:
 ```
 model.fix_model(train_interaction, train_interaction, proteins_features, seed)
@@ -34,17 +34,16 @@ Where "train_interaction" is the binary matrix of the protein-subcellular locati
 Finally, model.predic_scores estimeates the probability of residing test proteins in subcellular locations.
 
 ## Running on benchmark datasets
-In Results.py, it is possible to test PSL-Recommender on four well-known benchmark datasets ([Hum-mPLoc 3.0](https://academic.oup.com/bioinformatics/article/33/6/843/2623045), [BaCelLo](https://academic.oup.com/bioinformatics/article/22/14/e408/228072), [Höglund](https://academic.oup.com/bioinformatics/article/22/10/1158/236546), and [DBMLoc](https://bmcbioinformatics.biomedcentral.com/articles/10.1186/1471-2105-9-127) ). 
+In Results.py, it is possible to test PSL-Recommender on four well-known benchmark datasets ([Hum-mPLoc 3.0](https://academic.oup.com/bioinformatics/article/33/6/843/2623045), [BaCelLo](https://academic.oup.com/bioinformatics/article/22/14/e408/228072), [Höglund](https://academic.oup.com/bioinformatics/article/22/10/1158/236546), [DBMLoc](https://bmcbioinformatics.biomedcentral.com/articles/10.1186/1471-2105-9-127), and [Deeploc](https://academic.oup.com/bioinformatics/article/33/21/3387/3931857)).
 
 For running Results.py [scikit-learn](http://scikit-learn.org/stable/) package is needed.
 
-Datasets for runnung Results.py are available at: https://drive.google.com/open?id=1ied6kbSF9PByGoGHVUZkW7hyd81oW5nj
+Datasets for runnung Results.py are available at: https://drive.google.com/open?id=1ied6kbSF9PByGoGHVUZkW7hyd8oW5nj
 
-## Authors
+## Author
 **Ruhollah Jamali**
-Email: ruhi.jamali(at sign)gmail.com
+Email: Rjamali(at sign)ipm.ir
 
 School of Biological Sciences, Institute for Research in Fundamental Sciences(IPM), Tehran, Iran
 
 If you have any problem running the code, please do not hesitate to contact me.
-
