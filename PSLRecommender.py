@@ -2,7 +2,7 @@ import numpy as np
 
 class PSLR:
 
-    def __init__(self, c=40, K1=10, K2=5, r=10, lambda_p=1.0, lambda_l=1.0, alpha=1.0, theta=1.0, max_iter=50):
+    def __init__(self, r=11, c=28, K1=5, K2=10, lambda_p=2.0, lambda_l=1.0, alpha=0.5, theta=0.5, max_iter=50):
         self.c = int(c)  # importance level for positive observations
         self.K1 = int(K1) # number of nearest neighbors used for latent matrix construction
         self.K2 = int(K2) # number of nearest neighbors used for score prediction
